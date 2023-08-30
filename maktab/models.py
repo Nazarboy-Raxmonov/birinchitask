@@ -7,8 +7,10 @@ class students(models.Model):
     familiya = models.TextField(max_length=25)
     sinf = models.SmallIntegerField()
 
+    def __str__(self) -> str:
+        return self.ism
     class meta:
-        db_name = 'students'
+        db_table = 'students'
 
 
 class teachers(models.Model):
@@ -16,5 +18,7 @@ class teachers(models.Model):
     familiya = models.TextField(max_length=25)
     fan = models.TextField()
 
+    def __str__(self) -> str:
+        return self.ism
     class Meta:
-        db_name = 'teachers'
+        db_table = 'teachers'

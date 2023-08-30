@@ -12,7 +12,7 @@ def studentdetailmodels(request,st_name):
         "grade" : studentlist.sinf 
         }
     
-    return JsonResponse(info, safe=false)
+    return JsonResponse(info, safe=False)
 
 def studentsall(request):
     result = []
@@ -23,27 +23,27 @@ def studentsall(request):
         'surname' : i.familiya,
         'grade' : i.sinf
         })
-    return JsonResponse(result, safe=false)
+    return JsonResponse(result, safe=False)
 
 def teacherdetailmodels(request,teacher_id):
     teachermodels = teachers.objects.get_object_or_404(id = teacher_id)
 
     info = {
-        'name' : teachermodels.ism,
-        'surname' : teachermodels.familiya,
-        'subject' : teachermodels.fan
+        'name' : teacherdetailmodels.ism,
+        'surname' : teacherdetailmodels.familiya,
+        'subject' : teacherdetailmodels.fan
     }
 
-    return JsonResponse(info,safe=false)
+    return JsonResponse(info,safe=False)
 
 def teachersall(request):
     natija = []
     hammasi = teachers.objects.all()
     for i in hammasi:
         natija.append({
-        'name' : teachermodels.ism,
-        'surname' : teachermodels.familiya,
-        'subject' : teachermodels.fan
+        'name' : i.ism,
+        'surname' : i.familiya,
+        'subject' : i.fan
         })
 
-    return JsonResponse(natija,safe = false)
+    return JsonResponse(natija,safe = False)
